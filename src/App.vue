@@ -1,102 +1,106 @@
 <template lang="pug">
-#app
-  .container.main
-    .row.main
-      #personal_l.col.s12.m5.l4.show-on-large
-        .row.header.card
-          .tag
-            i.hide-on-med-and-down.fa.fa-desktop.fa-2x
-            i.hide-on-small-only.hide-on-large-only.fa.fa-tablet.fa-2x
-            i.hide-on-med-and-up.fa.fa-mobile.fa-2x
-          .avatar
-            img(src="https://profile.actionsprout.com/default.jpeg")
-          h4 Juan José Rivera
-          h5 Desarrollador Javascript
-        
-        .row.card
-          i.material-icons.tag person
-          .col.s10.offset-s2 Juan José Rivera Román
-          .col.s10.offset-s2 Guatemalteco
-          .col.s10.offset-s2 2093 xxxxx xxxx
-        .row.card
-          i.material-icons.tag mode_comment
-          .col.s10.offset-s2 juanjoriverar@gmail.com
-          .col.s10.offset-s2 4137 1726
-        .row.card
-          i.material-icons.tag language
-          .col.s10.offset-s2 Español
-          .col.s10.offset-s2.material-icons star star star star star
-          .col.s10.offset-s2 Inglés
-          .col.s10.offset-s2.material-icons star star star star_half star_border
-          .col.s10.offset-s2 Francés
-          .col.s10.offset-s2.material-icons star star_border star_border star_border star_border
-        .row.card
-          i.material-icons.tag people
-          a.col.s1.offset-s2.fa.fa-facebook-official.fa-2x
-          a.col.s1.offset-s1.fa.fa-codepen.fa-2x
-          a.col.s1.offset-s1.fa.fa-github.fa-2x
-          a.col.s1.offset-s1.fa.fa-whatsapp.fa-2x
-      #prof.col.s12.m7.l8
-        .row.card
+.container.main
+  .row.main
+    #personal_l.col.s12.m5.l4.show-on-large
+      .row.header.card
+        .tag
+          i.hide-on-med-and-down.fa.fa-desktop.fa-2x
+          i.hide-on-small-only.hide-on-large-only.fa.fa-tablet.fa-2x
+          i.hide-on-med-and-up.fa.fa-mobile.fa-2x
+        .avatar
+          img(src="https://profile.actionsprout.com/default.jpeg")
+        h4 Juan José Rivera
+        h5 Desarrollador Javascript
+      
+      .row.card
+        i.material-icons.tag person
+        .col.s10.offset-s2 Juan José Rivera Román
+        .col.s10.offset-s2 Guatemalteco
+        .col.s10.offset-s2 2093 xxxxx xxxx
+      .row.card
+        i.material-icons.tag mode_comment
+        .col.s10.offset-s2 juanjoriverar@gmail.com
+        .col.s10.offset-s2 4137 1726
+      .row.card
+        i.material-icons.tag language
+        .col.s10.offset-s2 Español
+        .col.s10.offset-s2.material-icons star star star star star
+        .col.s10.offset-s2 Inglés
+        .col.s10.offset-s2.material-icons star star star star_half star_border
+        .col.s10.offset-s2 Francés
+        .col.s10.offset-s2.material-icons star star_border star_border star_border star_border
+      .row.card
+        i.material-icons.tag people
+        a.col.s1.offset-s2.fa.fa-facebook-official.fa-2x
+        a.col.s1.offset-s1.fa.fa-codepen.fa-2x
+        a.col.s1.offset-s1.fa.fa-github.fa-2x
+        a.col.s1.offset-s1.fa.fa-whatsapp.fa-2x
+    #prof.col.s12.m7.l8
+      .row.card
+        .col.s12
+          h5.tag Cualidades
+        .col.s5.offset-s1.qua
+          svg.marked
+            path.line
+          div Cualidad 1
+        .col.s5.qua
+          svg.marked
+            path.line
+          div Cualidad 2
+        .col.s5.offset-s1.qua
+          svg.marked
+            path.line
+          div Cualidad 3
+        .col.s5.qua
+          svg.marked
+            path.line
+          div Cualidad 4
+      .row.card
+        .col.s12
+          h5.tag Habilidades
+        .col.s4
+          .skill.s-html
+            svg.pro
+              circle
+        .col.s4
+          .skill.s-css
+            svg.pro
+              circle
+        .col.s4
+          .skill.s-js
+            svg.pro
+              circle
+        .row.carroussel
           .col.s12
-            h5.tag Cualidades
-          .col.s5.offset-s1.qua
-            svg.marked
-              path.line
-            div Cualidad 1
-          .col.s5.qua
-            svg.marked
-              path.line
-            div Cualidad 2
-          .col.s5.offset-s1.qua
-            svg.marked
-              path.line
-            div Cualidad 3
-          .col.s5.qua
-            svg.marked
-              path.line
-            div Cualidad 4
-        .row.card
-          .col.s12
-            h5.tag Habilidades
-          .col.s4
-            .skill.s-html
-              svg.pro
-                circle
-          .col.s4
-            .skill.s-css
-              svg.pro
-                circle
-          .col.s4
-            .skill.s-js
-              svg.pro
-                circle
-          .row.carroussel
-            .col.s12
-        .row.card
-          .col.s12
-            h5.tag Experiencia
-            h6 Allied Global 
-              span 2012 - 2014
-            .pos-title Agente telefónico
-            p.pos-desc Como agente de servicio al cliente bilingüe, tuve la oportunidad de mejorar mi uso del idioma iglés, además de desarrollar habilidades necesarias para tratar con clientes, quienes no siempre estaban contentos, y darle a la situación una solución adecuada. 
-          .col.s12
-            h6 Innovative Contact Solutions 
-              span 2014 - 2017
-            .pos-title Email and Chat CSR
-            p.pos-desc Al interactuar con clientes de manera escrita, mejoré la lectura y comprensión del idioma inglés, además de la habilidad para brindar soluciones sencillas en menor tiempo. Con el tiempo tambien desempeñé la función de supervisor y capacitador
-            .pos-title Analista de Workforce
-            p.pos-desc Gracias a mi buen desempeño y actitud, obtuve el puesto de analista para workforce. En aquel entonces, empezé a aprender sobre programación y diseño web, utilicé estos nuevos conocimientos para optimizar procesos en el departamento y tambien para el área de operaciones.
-            .pos-title Desarrollador de Workforce
-            p.pos-desc Con la creciente necesidad de modernización en los procesos, se me dio la tarea de migrar los antiguos procesos a plataformas más modernas y eficientes, además del desarrollo de herramientas online para facilitar tareas en el área de producción. 
-        .row.card
-          .col.s12
-            h5.tag Hobbies
+      .row.card
+        .col.s12
+          h5.tag Experiencia
+          h6 Allied Global 
+            span 2012 - 2014
+          .pos-title Agente telefónico
+          p.pos-desc Como agente de servicio al cliente bilingüe, tuve la oportunidad de mejorar mi uso del idioma iglés, además de desarrollar habilidades necesarias para tratar con clientes, quienes no siempre estaban contentos, y darle a la situación una solución adecuada. 
+        .col.s12
+          h6 Innovative Contact Solutions 
+            span 2014 - 2017
+          .pos-title Email and Chat CSR
+          p.pos-desc Al interactuar con clientes de manera escrita, mejoré la lectura y comprensión del idioma inglés, además de la habilidad para brindar soluciones sencillas en menor tiempo. Con el tiempo tambien desempeñé la función de supervisor y capacitador
+          .pos-title Analista de Workforce
+          p.pos-desc Gracias a mi buen desempeño y actitud, obtuve el puesto de analista para workforce. En aquel entonces, empezé a aprender sobre programación y diseño web, utilicé estos nuevos conocimientos para optimizar procesos en el departamento y tambien para el área de operaciones.
+          .pos-title Desarrollador de Workforce
+          p.pos-desc Con la creciente necesidad de modernización en los procesos, se me dio la tarea de migrar los antiguos procesos a plataformas más modernas y eficientes, además del desarrollo de herramientas online para facilitar tareas en el área de producción. 
+      .row.card
+        .col.s12
+          h5.tag Hobbies
 </template>
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
+  data() {
+    return {
+      msg: 'Algo'
+    }
+  }
 }
 </script>
 

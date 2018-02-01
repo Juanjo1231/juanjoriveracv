@@ -1,6 +1,6 @@
 <template lang="pug">
 
-.col.s4.offset-s1.qua
+.col.s6.qua
         svg.marked
           path.line
         div {{ attr.val }}

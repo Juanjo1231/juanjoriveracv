@@ -217,7 +217,6 @@ body
   flex-direction column
   position relative
   padding 0.25rem .75rem
-  background-color white
   h4
     font-size 1.4rem
     margin 0 auto

@@ -16,7 +16,7 @@
         i.material-icons.tag person
         .col.s10.offset-s2 Juan José Rivera Román
         .col.s10.offset-s2 Guatemalteco
-        .col.s10.offset-s2 2093 xxxxx xxxx
+        .col.s10.offset-s2 2093 47562 0101
       .row.card
         i.material-icons.tag mode_comment
         .col.s10.offset-s2 juanjoriverar@gmail.com
@@ -39,66 +39,149 @@
       .row.card
         .col.s12
           h5.tag Cualidades
-        .col.s5.offset-s1.qua
-          svg.marked
-            path.line
-          div Cualidad 1
-        .col.s5.qua
-          svg.marked
-            path.line
-          div Cualidad 2
-        .col.s5.offset-s1.qua
-          svg.marked
-            path.line
-          div Cualidad 3
-        .col.s5.qua
-          svg.marked
-            path.line
-          div Cualidad 4
-      .row.card
+        attr(v-for='attr in attrs' v-bind:attr='attr' v-bind:key='attr.id')
+      .row.card.center-align
         .col.s12
           h5.tag Habilidades
-        .col.s4
-          .skill.s-html
-            svg.pro
-              circle
-        .col.s4
-          .skill.s-css
-            svg.pro
-              circle
-        .col.s4
-          .skill.s-js
-            svg.pro
-              circle
-        .row.carroussel
-          .col.s12
+        skill.col.s4(v-for='skill in skills' v-bind:skill='skill' v-bind:style=`buildStyles(skill)` v-bind:key='skill.id')
+        secSkill(v-for="secSkill in secSkills" v-bind:secSkill="secSkill" v-bind:key="secSkill.id")
+
       .row.card
         .col.s12
           h5.tag Experiencia
-          h6 Allied Global 
-            span 2012 - 2014
-          .pos-title Agente telefónico
-          p.pos-desc Como agente de servicio al cliente bilingüe, tuve la oportunidad de mejorar mi uso del idioma iglés, además de desarrollar habilidades necesarias para tratar con clientes, quienes no siempre estaban contentos, y darle a la situación una solución adecuada. 
-        .col.s12
-          h6 Innovative Contact Solutions 
-            span 2014 - 2017
-          .pos-title Email and Chat CSR
-          p.pos-desc Al interactuar con clientes de manera escrita, mejoré la lectura y comprensión del idioma inglés, además de la habilidad para brindar soluciones sencillas en menor tiempo. Con el tiempo tambien desempeñé la función de supervisor y capacitador
-          .pos-title Analista de Workforce
-          p.pos-desc Gracias a mi buen desempeño y actitud, obtuve el puesto de analista para workforce. En aquel entonces, empezé a aprender sobre programación y diseño web, utilicé estos nuevos conocimientos para optimizar procesos en el departamento y tambien para el área de operaciones.
-          .pos-title Desarrollador de Workforce
-          p.pos-desc Con la creciente necesidad de modernización en los procesos, se me dio la tarea de migrar los antiguos procesos a plataformas más modernas y eficientes, además del desarrollo de herramientas online para facilitar tareas en el área de producción. 
+        job(v-for='job in jobs' v-bind:job='job' v-bind:key='job.id')
+
       .row.card
         .col.s12
-          h5.tag Hobbies
+          h5.tag Referencias
+        reffer(v-for="lnk in lnks" v-bind:lnk='lnk' v-bind:key='lnk.id')
+
 </template>
 
 <script>
+import Skill from './components/Skill'
+import Job from './components/Job'
+import Attr from './components/Attribute'
+import Reffer from './components/Reffers'
+import SecSkill from './components/SecSkill'
+
+
 export default {
   name: 'app',
   data() {
     return {
-      msg: 'Algo'
+      skills: [
+        {id: 0, image: 'https://juanjo1231.github.io/juanjoriveracv/dist/html.png', progress: 65},
+        {id: 1, image: 'https://juanjo1231.github.io/juanjoriveracv/dist/css.png', progress: 50},
+        {id: 2, image: 'https://juanjo1231.github.io/juanjoriveracv/dist/js.png', progress: 40}
+      ],
+      secSkills: [
+        {id: 'sk-0',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/vue.png', text: 'Vue.js'},
+        {id: 'sk-1',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/babel.png', text: 'Babel.js'},
+        {id: 'sk-2',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/bootsrap.png', text: 'Bootstrap.css'},
+        {id: 'sk-3',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/browserify.png', text: 'Browserify'},
+        {id: 'sk-4',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/java.png', text: 'Java SE'},
+        {id: 'sk-5',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/node.png', text: 'Node.js'},
+        {id: 'sk-6',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/mysql.png', text: 'MySql'},
+        {id: 'sk-7',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/php.png', text: 'PHP'},
+        {id: 'sk-8',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/stylus.png', text: 'Stylus'},
+        {id: 'sk-9',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/materialize.png', text: 'Materialize.css'},
+        {id: 'sk-10',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/sass.png', text: 'Sass.css'},
+        {id: 'sk-11',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/gulp.png', text: 'Gulp'},
+        {id: 'sk-12',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/googleappscript.png', text: 'Google App Script'},
+        {id: 'sk-13',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/npm.png', text: 'npm'},
+        {id: 'sk-14',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/platzi.png', text: 'Platzi.com'},
+        {id: 'sk-15',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/ubuntu.png', text: 'Ubuntu'},
+        {id: 'sk-16',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/webpack.png', text: 'Webpack'},
+        {id: 'sk-17',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/spring.png', text: 'Spring Tool Suite'},
+        {id: 'sk-18',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/sublime.png', text: 'Sublime Text'},
+        {id: 'sk-19',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/eclipse.png', text: 'Eclipse'},
+        {id: 'sk-20',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/excel.png', text: 'Excel VBA'},
+        {id: 'sk-21',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/git.png', text: 'Git'},
+        {id: 'sk-22',image: 'https://juanjo1231.github.io/juanjoriveracv/dist/visualstudio.png', text: 'Visual Studio'},
+      ],
+      jobs: [
+        {
+          id: 'jb-0',
+          company: 'Allied Global',
+          date: '2012 - 2014',
+          positions: [
+            {
+              id: 'ag-0',
+              name:'Agente telefónico',
+              description: 'Como agente de servicio al cliente bilingüe, tuve la oportunidad de mejorar mi uso del idioma iglés, además de desarrollar habilidades necesarias para tratar con clientes, quienes no siempre estaban contentos, y darle a la situación una solución adecuada.'
+            }
+          ]
+        },
+        {
+          id: 'jb-1',
+          company: 'Innovative Contact Solutions',
+          date: '2014 - 2017',
+          positions: [
+            {
+              id: 'ics-0',
+              name:'Email and Chat CSR',
+              description: 'Al interactuar con clientes de manera escrita, mejoré la lectura y comprensión del idioma inglés, además de la habilidad para brindar soluciones sencillas en menor tiempo. Con el tiempo tambien desempeñé la función de supervisor y capacitador'
+            },
+            {
+              id: 'ics-1',
+              name:'Analista de Workforce',
+              description: 'Gracias a mi buen desempeño y actitud, obtuve el puesto de analista para workforce. En aquel entonces, empezé a aprender sobre programación y diseño web, utilicé estos nuevos conocimientos para optimizar procesos en el departamento y tambien para el área de operaciones.'
+            },
+            {
+              id: 'ics-2',
+              name:'Desarrollador de Workforce',
+              description: 'Con la creciente necesidad de modernización en los procesos, se me dio la tarea de migrar los antiguos procesos a plataformas más modernas y eficientes, además del desarrollo de herramientas online para facilitar tareas en el área de producción.'
+            }
+          ]
+        }
+      ],
+      attrs: [
+        {id: 'at-0', val: 'Creativo'},
+        {id: 'at-1', val: 'Proactivo'},
+        {id: 'at-2', val: 'Trabajo en equipo'},
+        {id: 'at-3', val: 'Autodidacta'},
+        {id: 'at-4', val: 'Perseverante'},
+        {id: 'at-5', val: 'Eficiente'}
+      ],
+      lnks: [
+        {
+          id: 'lnk-0',
+          name: 'Vanessa Urizar',
+          title: 'Supervisora',
+          fb: 'https://www.facebook.com/vanessa.urizar/about?lst=1281192704%3A729533883%3A1517441025',
+          image: 'https://juanjo1231.github.io/juanjoriveracv/dist/vanessa_urizar.png',
+          tel: '3097-3800'
+        },
+        {
+          id: 'lnk-1',
+          name: 'Luis Diego Castillo',
+          title: 'Supervisor',
+          fb: 'https://www.facebook.com/luisdiego9',
+          image: 'https://juanjo1231.github.io/juanjoriveracv/dist/luis_castillo.png',
+          tel: '3040-5164'
+        },
+        {
+          id: 'lnk-2',
+          name: 'Luis Capilla',
+          title: 'Supervisor',
+          fb: 'https://www.facebook.com/thorondor.gwaihir',
+          image: 'https://juanjo1231.github.io/juanjoriveracv/dist/luis_capilla.png',
+          tel: '5126-5145'
+        },
+      ]
+    }
+  },
+  components: {
+    Skill,
+    Job,
+    Attr,
+    Reffer,
+    SecSkill
+  },
+  methods: {
+    buildStyles (skill) {
+      return `background-image: url("${skill.image}")`
     }
   }
 }
@@ -124,6 +207,8 @@ body
   font-weight 500
   color #5b6774
   text-rendering optimizeLegibility
+.container
+  width 90%
 .main
   height 100%
   margin 0 auto
@@ -213,24 +298,6 @@ body
         animation-delay 0.6s
       &:last-child
         animation-delay 0.8s
-
-h6
-  font-weight bold
-  font-size 1.1rem
-  span
-    font-weight normal
-    color $strong
-    font-size 0.9rem
-    &::before
-      content " - "
-.pos-title
-  font-weight normal
-  margin 0
-  text-indent 1rem
-.pos-desc
-  margin 0.3rem 0 1rem 2rem
-  font-weight normal
-  font-style italic
   
 /*COMPLEMENTARY*/
 .avatar
@@ -253,76 +320,5 @@ a.fa
   color black
 .fa-whatsapp:hover
   color #25d366
-  
-.marked
-  width 35px
-  height 35px
-  display inline-block
-  .line
-    fill none
-    stroke #00487C
-    stroke-width 5
-    stroke-linecap round
-    stroke-linejoin round
-    stroke-dasharray 27
-    stroke-dashoffset 27
-    d path("M8,20 L15,25 25,10")
-    animation-name check
-    animation-duration 0.5s
-    animation-iteration-count 1
-    animation-fill-mode forwards
-    animation-timing-function cubic-bezier(0.8, 0, 1, 1)
-    animation-delay 0.8s
-
-@keyframes check
-  to
-    stroke-dashoffset 0
-    
-.qua
-  display flex
-  div
-    padding-top 0.5rem
-  
-.skill
-  width 6rem
-  height 6rem
-  background-size 3rem
-  background-position center
-  background-repeat no-repeat
-  border-radius 50%
-  margin 1rem auto
-  position relative
-  &.s-html
-    background-image url("https://www.w3.org/html/logo/downloads/HTML5_Logo_512.png")
-    background-size 4rem
-  &.s-css
-    background-image url("https://upload.wikimedia.org/wikipedia/commons/3/3d/CSS.3.svg")
-  &.s-js
-    background-image url("https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png")
-svg.pro
-  position absolute
-  background-color transparent
-  top 0
-  right 0
-  width 100%
-  height 100%
-  circle
-    cx 50%
-    cy 50%
-    r 45%
-    fill none
-    stroke $prof_strong
-    stroke-width 6
-    stroke-dasharray 238
-    stroke-dashoffset 238
-    animation-name showProgress
-    animation-duration 1s
-    animation-iteration-count 1
-    animation-timing-function linear
-    animation-fill-mode forwards
-    
-@keyframes showProgress
-  to
-    stroke-dashoffset 40
 
 </style>

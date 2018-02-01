@@ -1,9 +1,9 @@
 <template lang="pug">
 
 .col.s6.qua
-        svg.marked
-          path.line
-        div {{ attr.val }}
+  svg.marked
+    path.line
+  div {{ attr.val }}
 
 </template>
 

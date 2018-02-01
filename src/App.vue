@@ -31,10 +31,9 @@
         .col.s10.offset-s2.material-icons star star_border star_border star_border star_border
       .row.card
         i.material-icons.tag people
-        a.col.s1.offset-s2.fa.fa-facebook-official.fa-2x
-        a.col.s1.offset-s1.fa.fa-codepen.fa-2x
-        a.col.s1.offset-s1.fa.fa-github.fa-2x
-        a.col.s1.offset-s1.fa.fa-whatsapp.fa-2x
+        a.col.s1.offset-s2.fa.fa-facebook-official.fa-2x(href='https://www.facebook.com/Juanjo.Formiga' target='_blank')
+        a.col.s1.offset-s1.fa.fa-codepen.fa-2x(href='https://codepen.io/JuanjoVlado/' target='_blank')
+        a.col.s1.offset-s1.fa.fa-github.fa-2x(href='https://github.com/Juanjo1231' target='_blank')
     #prof.col.s12.m7.l8
       .row.card
         .col.s12
@@ -216,7 +215,7 @@ body
   display flex
   flex-direction column
   position relative
-  padding 0.25rem .75rem
+  padding 0.25rem .75rem  
   h4
     font-size 1.4rem
     margin 0 auto

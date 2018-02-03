@@ -3,14 +3,14 @@
 .col.s6.l4.offset-l1.qua
   svg.marked
     path.line
-  div {{ attr.val }}
+  div {{ attr.val[lang] }}
 
 </template>
 
 <script>
 export default {
   name: 'attribute',
-  props: ['attr']
+  props: ['attr', 'lang']
 }
 </script>
 

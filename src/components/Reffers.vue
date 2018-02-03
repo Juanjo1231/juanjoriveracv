@@ -6,7 +6,7 @@
   .col.s9
     .col.s12
       a(v-bind:href="lnk.fb" target='_blank') {{ lnk.name }}
-        span {{ lnk.title }}
+        span {{ lnk.title[lang] }}
     .col.s1
         i.material-icons phone_android
     .col.s8 {{ lnk.tel }}    
@@ -16,7 +16,7 @@
 <script>
 export default {
   name: 'lnk',
-  props: ['lnk']
+  props: ['lnk', 'lang']
 }
 </script>
 

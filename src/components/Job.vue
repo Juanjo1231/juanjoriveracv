@@ -3,7 +3,7 @@
   .col.s12
     h6 {{ job.company }}
       span {{ job.date }}
-    position(v-for='position in job.positions' v-bind:position='position' v-bind:key='position.id')
+    position(v-for='position in job.positions' v-bind:position='position' v-bind:key='position.id' v-bind:lang='lang')
 
 </template>
 
@@ -12,7 +12,7 @@ import Position from './Position'
 
 export default {
   name: 'job',
-  props: ['job'],
+  props: ['job', 'lang'],
   components: {
     Position
   }

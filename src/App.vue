@@ -8,14 +8,16 @@
           i.hide-on-small-only.hide-on-large-only.fa.fa-tablet.fa-2x
           i.hide-on-med-and-up.fa.fa-mobile.fa-2x
         .avatar
-          img(src="https://profile.actionsprout.com/default.jpeg")
+          img(src="https://juanjo1231.github.io/juanjoriveracv/dist/profile_square.png")
         h4 Juan José Rivera
-        h5 Desarrollador Javascript
-      
+        h5 {{ textValues.title[lang] }}
+        select#lang-select(v-model="lang" name="lang_select")
+          option(value="spa") Español
+          option(value="eng") English
       .row.card
         i.material-icons.tag person
         .col.s10.offset-s2 Juan José Rivera Román
-        .col.s10.offset-s2 Guatemalteco
+        .col.s10.offset-s2 {{ textValues.nation[lang] }}
         .col.s10.offset-s2 2093 47562 0101
       .row.card
         i.material-icons.tag mode_comment
@@ -23,11 +25,11 @@
         .col.s10.offset-s2 4137 1726
       .row.card
         i.material-icons.tag language
-        .col.s10.offset-s2 Español
+        .col.s10.offset-s2 {{ textValues.spokenLangs[0][lang] }}
         .col.s10.offset-s2.material-icons star star star star star
-        .col.s10.offset-s2 Inglés
+        .col.s10.offset-s2 {{ textValues.spokenLangs[1][lang] }}
         .col.s10.offset-s2.material-icons star star star star_half star_border
-        .col.s10.offset-s2 Francés
+        .col.s10.offset-s2 {{ textValues.spokenLangs[2][lang] }}
         .col.s10.offset-s2.material-icons star star_border star_border star_border star_border
       .row.card
         i.material-icons.tag people
@@ -37,23 +39,23 @@
     #prof.col.s12.m7.l8
       .row.card
         .col.s12
-          h5.tag Cualidades
-        attr(v-for='attr in attrs' v-bind:attr='attr' v-bind:key='attr.id')
+          h5.tag {{ textValues.titles[0][lang] }}
+        attr(v-for='attr in attrs' v-bind:attr='attr' v-bind:key='attr.id' v-bind:lang='lang')
       .row.card.center-align
         .col.s12
-          h5.tag Habilidades
+          h5.tag {{ textValues.titles[1][lang] }}
         skill.col.s4(v-for='skill in skills' v-bind:skill='skill' v-bind:style=`buildStyles(skill)` v-bind:key='skill.id')
         secSkill(v-for="secSkill in secSkills" v-bind:secSkill="secSkill" v-bind:key="secSkill.id")
 
       .row.card
         .col.s12
-          h5.tag Experiencia
-        job(v-for='job in jobs' v-bind:job='job' v-bind:key='job.id')
+          h5.tag {{ textValues.titles[2][lang] }}
+        job(v-for='job in jobs' v-bind:job='job' v-bind:key='job.id' v-bind:lang="lang")
 
       .row.card
         .col.s12
-          h5.tag Referencias
-        reffer(v-for="lnk in lnks" v-bind:lnk='lnk' v-bind:key='lnk.id')
+          h5.tag {{ textValues.titles[3][lang] }}
+        reffer(v-for="lnk in lnks" v-bind:lnk='lnk' v-bind:key='lnk.id' v-bind:lang="lang")
 
 </template>
 
@@ -69,6 +71,49 @@ export default {
   name: 'app',
   data() {
     return {
+      lang: "eng",
+      textValues: {
+        title: {
+          spa: "Desarrollador Javascript",
+          eng: "Javascript Developer"
+        },
+        nation: {
+          spa: "Guatemalteco",
+          eng: "Guatemalan"
+        },
+        spokenLangs: {
+          0: {
+            spa: "Español",
+            eng: "Spanish"
+          },
+          1: {
+            spa: "Inglés",
+            eng: "English"
+          },
+          2: {
+            spa: "Francés",
+            eng: "French"
+          }
+        },
+        titles: {
+          0: {
+            spa: "Cualidades",
+            eng: "Attributes"
+          },
+          1: {
+            spa: "Habilidades",
+            eng: "Skills"
+          },
+          2: {
+            spa: "Experiencia",
+            eng: "Experience"
+          },
+          3: {
+            spa: "Referencias",
+            eng: "References"
+          }
+        }
+      },
       skills: [
         {id: 0, image: 'https://juanjo1231.github.io/juanjoriveracv/dist/html.png', progress: 65},
         {id: 1, image: 'https://juanjo1231.github.io/juanjoriveracv/dist/css.png', progress: 50},
@@ -109,8 +154,8 @@ export default {
               id: 'ag-0',
               name:'Agente telefónico',
               tasks: [
-                {id:"ag-tsk-0", value: "Recibir llamadas en inglés y español"},
-                {id:"ag-tsk-1", value: "Proveer servicio técnico e información specifica de servicios"}
+                {id:"ag-tsk-0", value: {spa: "Recibir llamadas en inglés y español", eng: 'Receive and make calls in english and spanish'}},
+                {id:"ag-tsk-1", value: {spa: "Proveer servicio técnico e información specifica de servicios", eng: 'Provide tecnical service and specific information about services'}}
               ]
             }
           ]
@@ -122,46 +167,55 @@ export default {
           positions: [
             {
               id: 'ics-0',
-              name:'Email and Chat CSR',
+              name: {
+                spa: 'Representante de servicio al cliente via Email y Chat',
+                eng: 'Email and Chat CSR'
+              },
               tasks: [
-                {id:"ics-tsk-0", value: "Recibir y enviar emails y chats en inglés y español"},
-                {id:"ics-tsk-1", value: "Contactar proveedores y servicios de entrega por email, chat o teléfono"},
+                {id:"ics-tsk-0", value: {spa: "Crear y responder correos electrónicos y chats en inglés y español", eng: 'Create and answer emails and chats in english and spanish'}},
+                {id:"ics-tsk-1", value: {spa: "Contactar proveedores y servicios de entrega por email, chat o teléfono", eng: "Contact providers and carriers via email, chat or phone"}},
               ]
             },
             {
               id: 'ics-1',
-              name:'Analista de Workforce',
+              name: {
+                spa: 'Analista de Workforce',
+                eng: 'Workforce Analyst'
+              },
               tasks: [
-                {id:"ics-tsk-2", value: "Reunir datos del área de producción"},
-                {id:"ics-tsk-3", value: "Analisis de datos"},
-                {id:"ics-tsk-4", value: "Organizar y presentar datos de manera organizada y precisa"}
+                {id:"ics-tsk-2", value: {spa: "Reunir datos del área de producción", eng: 'Gather data from production area'}},
+                {id:"ics-tsk-3", value: {spa: "Analisis de datos", eng: 'Data analysis'}},
+                {id:"ics-tsk-4", value: {spa: "Organizar y presentar datos de manera mas limpia y precisa", eng: "Organize and present data in a clearer and more precise manner"}}
               ]
             },
             {
               id: 'ics-2',
-              name:'Desarrollador de Workforce',
+              name: {
+                spa: 'Desarrollador de Workforce',
+                eng: 'Workforce Developer'
+              },
               tasks: [
-                {id:"ics-tsk-2", value: "Desarrollo de herramientas digitales para el departamento y el área de produccion"},
-                {id:"ics-tsk-3", value: "Analisis de datos"},
-                {id:"ics-tsk-4", value: "Optimización de processos para el departamento y el área de producción"}
+                {id:"ics-tsk-2", value: {spa: "Desarrollo de herramientas en linea para el departamento y el área de produccion", eng: 'Development of online tools for the workforce department and production area'}},
+                {id:"ics-tsk-3", value: {spa: "Analisis de datos", eng: 'Data analysis'}},
+                {id:"ics-tsk-4", value: {spa: "Optimización de processos para el departamento y el área de producción", eng: 'Processes optimization for the workforce department and production area'}}
               ]
             }
           ]
         }
       ],
       attrs: [
-        {id: 'at-0', val: 'Creativo'},
-        {id: 'at-1', val: 'Proactivo'},
-        {id: 'at-2', val: 'Trabajo en equipo'},
-        {id: 'at-3', val: 'Autodidacta'},
-        {id: 'at-4', val: 'Perseverante'},
-        {id: 'at-5', val: 'Eficiente'}
+        {id: 'at-0', val: {spa: 'Creativo', eng: 'Creative'}},
+        {id: 'at-1', val: {spa: 'Proactivo', eng: 'Proactive'}},
+        {id: 'at-2', val: {spa: 'Trabajo en equipo', eng: 'Team player'}},
+        {id: 'at-3', val: {spa: 'Autodidacta', eng: 'Autodidact'}},
+        {id: 'at-4', val: {spa: 'Perseverante', eng: 'Determined'}},
+        {id: 'at-5', val: {spa: 'Eficiente', eng: 'Efficient'}}
       ],
       lnks: [
         {
           id: 'lnk-0',
           name: 'Vanessa Urizar',
-          title: 'Supervisora',
+          title: {spa: 'Supervisora', eng: 'Supervisor'},
           fb: 'https://www.facebook.com/vanessa.urizar/about?lst=1281192704%3A729533883%3A1517441025',
           image: 'https://juanjo1231.github.io/juanjoriveracv/dist/vanessa_urizar.png',
           tel: '3097-3800'
@@ -169,7 +223,7 @@ export default {
         {
           id: 'lnk-1',
           name: 'Luis Diego Castillo',
-          title: 'Supervisor',
+          title: {spa: 'Supervisor', eng: 'Supervisor'},
           fb: 'https://www.facebook.com/luisdiego9',
           image: 'https://juanjo1231.github.io/juanjoriveracv/dist/luis_castillo.png',
           tel: '3040-5164'
@@ -177,7 +231,7 @@ export default {
         {
           id: 'lnk-2',
           name: 'Luis Capilla',
-          title: 'Supervisor',
+          title: {spa: 'Supervisor', eng: 'Supervisor'},
           fb: 'https://www.facebook.com/thorondor.gwaihir',
           image: 'https://juanjo1231.github.io/juanjoriveracv/dist/luis_capilla.png',
           tel: '5126-5145'
@@ -220,6 +274,13 @@ body
   font-weight 500
   color #5b6774
   text-rendering optimizeLegibility
+#lang-select
+  display block
+  position absolute
+  top 0.2rem
+  right 0.2rem
+  width 6rem
+  color $prof_strong
 .container
   width 90%
 .main
@@ -260,6 +321,13 @@ body
       animation-delay 0.4s
     &:nth-child(4)
       animation-delay 0.2s
+.avatar
+  img
+    height 8rem
+    margin 0 auto
+    margin-bottom 1rem
+    display block
+    border-radius 3rem 0
 .tag
   position absolute
   top -2px
@@ -288,7 +356,8 @@ body
     background-color $prof_strong
     border-color $prof_strong
     color $text_on_strong
-  
+    min-width 8rem
+    text-align left
 @keyframes enter
   to
     transform translate(0,0)
@@ -313,14 +382,6 @@ body
         animation-delay 0.8s
   
 /*COMPLEMENTARY*/
-.avatar
-  img
-    height 6rem
-    margin 0 auto
-    margin-bottom 1rem
-    display block
-    border-radius 3rem 0
-    
 a.fa
   color $text_on_medium
   cursor pointer

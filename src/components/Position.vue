@@ -1,12 +1,12 @@
 <template lang="pug">
-  .pos-title {{ position.name }}
-    li(v-for='task in position.tasks' v-bind:key="task.id") {{ task.value }}
+  .pos-title {{ position.name[lang] }}
+    li(v-for='task in position.tasks' v-bind:key="task.id") {{ task.value[lang] }}
 </template>
 
 <script>
 export default {
   name: 'position',
-  props: ['position']
+  props: ['position', 'lang']
 }
 </script>
 

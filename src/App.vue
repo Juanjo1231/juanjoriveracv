@@ -108,7 +108,10 @@ export default {
             {
               id: 'ag-0',
               name:'Agente telefónico',
-              description: 'Como agente de servicio al cliente bilingüe, tuve la oportunidad de mejorar mi uso del idioma iglés, además de desarrollar habilidades necesarias para tratar con clientes, quienes no siempre estaban contentos, y darle a la situación una solución adecuada.'
+              tasks: [
+                {id:"ag-tsk-0", value: "Recibir llamadas en inglés y español"},
+                {id:"ag-tsk-1", value: "Proveer servicio técnico e información specifica de servicios"}
+              ]
             }
           ]
         },
@@ -120,17 +123,28 @@ export default {
             {
               id: 'ics-0',
               name:'Email and Chat CSR',
-              description: 'Al interactuar con clientes de manera escrita, mejoré la lectura y comprensión del idioma inglés, además de la habilidad para brindar soluciones sencillas en menor tiempo. Con el tiempo tambien desempeñé la función de supervisor y capacitador'
+              tasks: [
+                {id:"ics-tsk-0", value: "Recibir y enviar emails y chats en inglés y español"},
+                {id:"ics-tsk-1", value: "Contactar proveedores y servicios de entrega por email, chat o teléfono"},
+              ]
             },
             {
               id: 'ics-1',
               name:'Analista de Workforce',
-              description: 'Gracias a mi buen desempeño y actitud, obtuve el puesto de analista para workforce. En aquel entonces, empezé a aprender sobre programación y diseño web, utilicé estos nuevos conocimientos para optimizar procesos en el departamento y tambien para el área de operaciones.'
+              tasks: [
+                {id:"ics-tsk-2", value: "Reunir datos del área de producción"},
+                {id:"ics-tsk-3", value: "Analisis de datos"},
+                {id:"ics-tsk-4", value: "Organizar y presentar datos de manera organizada y precisa"}
+              ]
             },
             {
               id: 'ics-2',
               name:'Desarrollador de Workforce',
-              description: 'Con la creciente necesidad de modernización en los procesos, se me dio la tarea de migrar los antiguos procesos a plataformas más modernas y eficientes, además del desarrollo de herramientas online para facilitar tareas en el área de producción.'
+              tasks: [
+                {id:"ics-tsk-2", value: "Desarrollo de herramientas digitales para el departamento y el área de produccion"},
+                {id:"ics-tsk-3", value: "Analisis de datos"},
+                {id:"ics-tsk-4", value: "Optimización de processos para el departamento y el área de producción"}
+              ]
             }
           ]
         }

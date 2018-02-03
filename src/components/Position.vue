@@ -1,6 +1,6 @@
 <template lang="pug">
   .pos-title {{ position.name }}
-    p.pos-desc {{ position.description }}
+    li(v-for='task in position.tasks' v-bind:key="task.id") {{ task.value }}
 </template>
 
 <script>
@@ -13,10 +13,8 @@ export default {
 <style lang="stylus" scoped>
 .pos-title
   font-weight normal
-  margin 0
+  margin 1rem 0
   text-indent 1rem
-.pos-desc
-  margin 0.3rem 0 1rem 2rem
-  font-weight normal
-  font-style italic
+li
+  margin-left 1rem
 </style>
